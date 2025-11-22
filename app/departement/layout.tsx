@@ -4,8 +4,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <div className="min-h-screen flex flex-col">
             <HeaderDepartement />
-            <main className="flex-1">
-                <div className="container mx-auto px-4 md:px-8">{children}</div>
+            <main className="flex-1 px-5 md:px-[10%] py-6 md:py-8">
+                {children}
             </main>
         </div>
     );
