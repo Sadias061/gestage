@@ -9,6 +9,7 @@ export default function HeaderStagiaire() {
     const pathname = usePathname();
     const [open, setOpen] = useState(false); // menu mobile
     const [profileOpen, setProfileOpen] = useState(false); // dropdown profil
+    const [scrolled, setScrolled] = useState(false);
     const profileRef = useRef<HTMLDivElement | null>(null);
 
     // Fermer le dropdown profil en cliquant à l'extérieur
@@ -23,6 +24,14 @@ export default function HeaderStagiaire() {
         }
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [profileOpen]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const navLinks = [
         { href: "/stagiaire", label: "Accueil", icon: LayoutDashboard },
@@ -48,8 +57,10 @@ export default function HeaderStagiaire() {
     );
 
     return (
-        <div className="border-b border-primary/40 bg-base-100 px-5 md:px-[10%] py-4 relative">
-            <div className="flex items-center">
+        <div className={`px-5 md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
+        }`}>
+            <div className="flex items-center border-b border-primary/40 pb-4">
                 {/* Bloc gauche (logo) */}
                 <div className="flex items-center cursor-pointer">
                     <div className="p-2 rounded-md bg-primary/20">

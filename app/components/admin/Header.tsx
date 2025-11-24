@@ -9,6 +9,7 @@ export default function HeaderAdmin() {
     const pathname = usePathname();
     const [open, setOpen] = useState(false); // menu mobile
     const [profileOpen, setProfileOpen] = useState(false); // dropdown profil
+    const [scrolled, setScrolled] = useState(false);
     const profileRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -20,6 +21,14 @@ export default function HeaderAdmin() {
         if (profileOpen) document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [profileOpen]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const navLinks = [
         { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -44,8 +53,10 @@ export default function HeaderAdmin() {
     );
 
     return (
-        <div className="border-b border-base-300 bg-base-100 px-5 md:px-[10%] py-4 relative">
-            <div className="flex items-center">
+        <div className={`px-5 md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
+        }`}>
+            <div className="flex items-center border-b border-base-300 pb-4">
                 <div className="flex items-center cursor-pointer">
                     <div className="p-2 rounded-md bg-secondary/20">
                         <span className="text-secondary font-bold">GA</span>
