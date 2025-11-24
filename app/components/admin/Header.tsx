@@ -53,10 +53,9 @@ export default function HeaderAdmin() {
     );
 
     return (
-        <div className={`px-5 md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-            scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
-        }`}>
-            <div className="flex items-center border-b border-base-300 pb-4">
+        <div className={`px-5 md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
+            }`}>
+            <div className="flex items-center border-b border-secondary/40 pb-4 px-5">
                 <div className="flex items-center cursor-pointer">
                     <div className="p-2 rounded-md bg-secondary/20">
                         <span className="text-secondary font-bold">GA</span>
@@ -95,7 +94,7 @@ export default function HeaderAdmin() {
                             <li>
                                 <a className="justify-between">
                                     Profil
-                                    <span className="badge text-purple-300 border-purple-300">Nouveau</span>
+                                    <span className="badge badge-soft badge-secondary">Nouveau</span>
                                 </a>
                             </li>
                         </ul>

@@ -53,7 +53,7 @@ export default function Page() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <div className={`md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
+      <div className={`px-5 md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
         }`}>
         <div className="flex items-center border-b border-primary/40 pb-4 px-5">
           {/* Bloc gauche (logo) */}

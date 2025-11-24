@@ -54,10 +54,9 @@ export default function HeaderDepartement() {
     );
 
     return (
-        <div className={`px-5 md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-            scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
-        }`}>
-            <div className="flex items-center border-b border-accent/40 pb-4">
+        <div className={`px-5 md:px-[10%] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-base-100/80 backdrop-blur-md shadow-md" : "bg-base-100"
+            }`}>
+            <div className="flex items-center border-b border-accent/40 pb-4  px-5">
                 {/* Bloc gauche (logo) */}
                 <div className="flex items-center cursor-pointer">
                     <div className="p-2 rounded-md bg-accent/20">
@@ -99,7 +98,7 @@ export default function HeaderDepartement() {
                             <li>
                                 <a className="justify-between">
                                     Profil
-                                    <span className="badge text-accent border-accent">Nouveau</span>
+                                    <span className="badge badge-soft badge-accent">Nouveau</span>
                                 </a>
                             </li>
                         </ul>
